@@ -1,0 +1,198 @@
+/* Navbar.css */
+.navbar {
+    background: linear-gradient(90deg, #232f3e 0%, #37475a 100%);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 153, 0, 0.2);
+}
+
+.navbar-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff9900, #ffac33);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.5px;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-links a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #ff9900;
+    transition: width 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #ff9900;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.navbar-links a:hover::before {
+    width: 80%;
+}
+
+/* Active link styling */
+.navbar-links a.active {
+    background: rgba(255, 153, 0, 0.1);
+    color: #ff9900;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .navbar-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .navbar-links a {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+}
+
+/* Animation for link hover */
+@keyframes linkHover {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Optional: Add a hamburger menu for mobile */
+.navbar-toggle {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 5px;
+}
+
+@media (max-width: 640px) {
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .navbar-links a {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        border-radius: 0;
+    }
+}
+
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Adjust based on navbar height */
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signout-button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 20px;
+    transition: background-color 0.2s;
+}
+
+.signout-button:hover {
+    background-color: #ee8800;
+}
+
+/* If you need to adjust the navbar-links to accommodate the button */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
